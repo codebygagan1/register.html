@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registration Form</title>  
+</head>
+<body>
+  <div class="wrap">
+    <header class="title">
+      <h1>Register</h1>
+      <div class="badge"><span class="dot"></span> codebygagan</div>
+    </header>
+
+    <form class="card" action="#" method="post" novalidate>
+      <div class="grid">
+        <div class="control">
+          <label for="fname">First Name *</label>
+          <input id="fname" name="first_name" type="text" placeholder="e.g., Gagan" required>
+        </div>
+
+        <div class="control">
+          <label for="lname">Last Name *</label>
+          <input id="lname" name="last_name" type="text" placeholder="e.g., Sharma" required>
+        </div>
+
+        <div class="control">
+          <label for="email">Email *</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required>
+          <p class="hint">We'll never share your email.</p>
+        </div>
+
+        <div class="control">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" pattern="^[+0-9()\-\s]{7,20}$" inputmode="tel">
+        </div>
+
+        <div class="control">
+          <label for="username">Username *</label>
+          <input id="username" name="username" type="text" minlength="3" maxlength="20" placeholder="min 3 characters" required>
+        </div>
+
+        <div class="control">
+          <label for="password">Password *</label>
+          <input id="password" name="password" type="password" minlength="8" placeholder="min 8 characters" required>
+          <p class="hint">Use at least 8 characters (mix of letters & numbers recommended).</p>
+        </div>
+
+        <div class="control">
+          <label for="dob">Date of Birth *</label>
+          <input id="dob" name="dob" type="date" required>
+        </div>
+
+        <div class="control">
+          <label for="country">Country *</label>
+          <select id="country" name="country" required>
+            <option value="" disabled selected>Select your country</option>
+            <option>India</option>
+            <option>United States</option>
+            <option>United Kingdom</option>
+            <option>Canada</option>
+            <option>Australia</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="control span-2">
+          <label for="address">Address</label>
+          <textarea id="address" name="address" rows="3" placeholder="Street, City, State, ZIP"></textarea>
+        </div>
+
+        <div class="control span-2">
+          <label>Gender</label>
+          <div class="radio-group" role="radiogroup" aria-label="Gender">
+            <label class="radio"><input type="radio" name="gender" value="male"> Male</label>
+            <label class="radio"><input type="radio" name="gender" value="female"> Female</label>
+            <label class="radio"><input type="radio" name="gender" value="other"> Other</label>
+            <label class="radio"><input type="radio" name="gender" value="na"> Prefer not to say</label>
+          </div>
+        </div>
+
+        <div class="control span-2">
+          <div class="check-group">
+            <label class="check">
+              <input type="checkbox" name="newsletter" value="yes"> Subscribe to newsletter
+            </label>
+            <label class="check">
+              <input type="checkbox" name="terms" value="agree" required> I agree to the Terms & Privacy *
+            </label>
+          </div>
+          <p class="hint">* Required fields</p>
+        </div>
+      </div>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <div class="actions">
+        <button type="reset" class="btn ghost" title="Clear all fields">Reset</button>
+        <button type="submit" class="btn primary" title="Create account">Create Account</button>
+      </div>
+    </form>
+
+    <p class="foot">Already registered? <a href="#">Sign in</a></p>
+  </div>
+</body>
+<style>
+    :root{
+      --bg: #0f172a;          /* slate-900 */
+      --card: #111827cc;      /* slate-900 w/ alpha */
+      --muted: #94a3b8;       /* slate-400 */
+      --text: #e5e7eb;        /* gray-200 */
+      --primary: #6366f1;     /* indigo-500 */
+      --ring: #a78bfa;        /* violet-400 */
+      --error: #ef4444;       /* red-500 */
+      --ok: #10b981;          /* emerald-500 */
+      --radius: 16px;
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --blur: 14px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font: 15px/1.5 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% 0%, #1e293b 0%, transparent 60%),
+        radial-gradient(800px 400px at 90% 20%, #0ea5e9 0%, transparent 55%),
+        radial-gradient(900px 500px at 10% 100%, #7c3aed 0%, transparent 55%),
+        linear-gradient(180deg, #0b1020, #0b1020 40%, #0a0f1d 100%);
+      display:grid;
+      place-items:center;
+      padding: 32px 16px;
+    }
+
+    .wrap{
+      width: min(100%, 980px);
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom: 18px;
+    }
+
+    .card{
+      background: color-mix(in oklab, var(--card) 85%, #000);
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      border: 1px solid #3341557a;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: clamp(18px, 3vw, 28px);
+    }
+
+    .grid{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px 16px;
+    }
+    @media (min-width: 720px){
+      .grid{ grid-template-columns: repeat(2, 1fr); }
+      .span-2{ grid-column: span 2; }
+    }
+
+    label { display:block; font-weight: 600; margin: 6px 2px; color: var(--text); }
+
+    .control{
+      position: relative;
+    }
+
+    input, select, textarea{
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+      background: #0b1222;
+      color: var(--text);
+      outline: none;
+      transition: border .2s, box-shadow .2s, background .2s;
+    }
+
+    input::placeholder, textarea::placeholder{ color: #94a3b8a6; }
+
+    input:focus, select:focus, textarea:focus{
+      border-color: var(--ring);
+      box-shadow: 0 0 0 4px color-mix(in oklab, var(--ring) 30%, transparent);
+      background: #0c1430;
+    }
+
+    input:required:invalid{ border-color: #334155; }
+    input:invalid[aria-invalid="true"], select:invalid[aria-invalid="true"]{ border-color: var(--error); }
+
+    .hint{ font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+    .inline{ display:flex; align-items:center; gap: 10px; }
+
+    .radio-group, .check-group{ display:flex; gap: 12px; flex-wrap: wrap; }
+    .radio, .check{
+      display:flex; align-items:center; gap:8px; cursor: pointer; user-select:none;
+      background:#0b1222; border: 1px solid #334155; padding:10px 12px; border-radius: 999px;
+    }
+    .radio input[type="radio"], .check input[type="checkbox"]{ accent-color: var(--primary); width:18px; height:18px; }
+
+    .actions{
+      display:flex; gap: 12px; flex-wrap: wrap; justify-content:flex-end; margin-top: 6px;
+    }
+    .btn{
+      appearance:none; border:0; cursor:pointer; font-weight:700;
+      padding: 12px 18px; border-radius: 12px; transition: transform .06s ease, box-shadow .2s ease, background .2s;
+    }
+    .btn.primary{ background: linear-gradient(90deg, var(--primary), var(--ring)); color: white; box-shadow: 0 10px 28px rgba(99,102,241,.35); }
+    .btn.primary:active{ transform: translateY(1px); }
+    .btn.ghost{ background: transparent; border:1px solid #334155; color: var(--text); }
+
+    .divider{ height:1px; background: #334155; margin: 8px 0 2px; }
+
+    /* Tiny badge */
+    .badge{ display:inline-flex; gap:6px; align-items:center; font-size:12px; color:var(--muted); }
+    .dot{ width:8px; height:8px; border-radius:50%; background: var(--ok); display:inline-block; }
+
+    /* Footer */
+    .foot{ color: var(--muted); text-align:center; margin-top: 12px; font-size: 13px; }
+    .foot a{ color: var(--text); }
+  </style>
+</html>
